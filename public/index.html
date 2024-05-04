@@ -59,6 +59,9 @@
       
     </div>
   </nav>
+  <div class="greeting-container">
+   
+</div>
 
   <h1 class="text-center p-3 middle-text">
     <i class="fas fa-star" style="float: left;"></i>
@@ -67,7 +70,8 @@
   </h1>
   <div class="add-btn">
     <button id="addApartmentButton" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addApartmentModal" disabled>Add New
-      Apartment</button>
+      Apartment
+    </button>
   </div>
 
 
@@ -224,24 +228,29 @@
       let currentUserEmail= null
 
       function updateNavAuth() {
-        const navAuth = document.getElementById('authBtn');
-        const addAptBtn = document.getElementById('addApartmentButton')
+        const greetingContainer = document.querySelector('.greeting-container');
+        const addAptBtn = document.getElementById('addApartmentButton');
         if (currentUserEmail) {
-            navAuth.innerHTML = `<p>Hello, ${currentUserEmail}</p>
-                                <a href="/logout"><button type="button" class="btn btn-outline-dark my-2 my-sm-0" id="logOutBtn">Log Out</button></a>`;
-            addAptBtn.disabled = false
+            greetingContainer.innerHTML = `<p>Hello, ${currentUserEmail}!</p>`;
+            greetingContainer.style.display = 'block';  // Make the container visible
+            document.getElementById('authBtn').innerHTML = `<a href="/logout"><button type="button" class="btn btn-outline-dark my-2 my-sm-0" id="logOutBtn">Log Out</button></a>`;
+            addAptBtn.disabled = false;
         } else {
-            navAuth.innerHTML = `<a href="signin.html"><button type="button" class="btn btn-outline-dark my-2 my-sm-0 signIns" id="signInBtn">Sign In</button></a>
-                                <a href="signup.html"><button type="button" class="btn btn-outline-dark my-2 my-sm-0 signIns" id="signUpBtn">Sign Up</button></a>`;
-            addAptBtn.disabled = true
+            greetingContainer.innerHTML = '';  // Clear the greeting message
+            greetingContainer.style.display = 'none';  // Hide the container
+            document.getElementById('authBtn').innerHTML = `<a href="signin.html"><button type="button" class="btn btn-outline-dark my-2 my-sm-0 signIns" id="signInBtn">Sign In</button></a>
+                                    <a href="signup.html"><button type="button" class="btn btn-outline-dark my-2 my-sm-0 signIns" id="signUpBtn">Sign Up</button></a>`;
+            addAptBtn.disabled = true;
         }
     }
+    
+    
       function fetchCurrentUser() {
         fetch('/current-user')
           .then(response => response.json())
           .then(data => {
             if (data.email) {
-              currentUserEmail = data.email;
+              currentUserEmail = data.email; // Properly setting the currentUserEmail
               console.log('Current User Email:', currentUserEmail);
               
             } else {

@@ -216,3 +216,63 @@ a.nav-link:hover, .dropdown-item:hover {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
     transform: translateY(-5px);
   }
+
+  #authBtn p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #4da5ce;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#authBtn p:hover {
+    background-color: #3a94bf;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.greeting-container {
+    text-align: left;
+    padding: 15px;
+    padding-left: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #4da5ce;
+    font-style: italic;
+    margin: 20px;
+    border-radius: 0 0 10px 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    width: 400px;
+}
+
+.greeting-container p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.tooltip.bs-tooltip-top .tooltip-inner {
+    background-color: #ff0000; 
+    color: white;
+    font-weight: bold; 
+}
+
+.tooltip.bs-tooltip-top .arrow::before {
+    border-top-color: #ff0000; /* Arrow color */
+}
+
+#addApartmentButton:hover .fas {
+    display: inline-block; /* Show icon on hover */
+}
+
+#addApartmentButton .fas {
+    margin-left: 5px; /* Space between text and icon */
+}
+
+
+
+
+
